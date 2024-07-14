@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,13 +37,15 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
+
     .back-button:hover {
       background-color: #0277bd;
     }
   </style>
 </head>
+
 <body>
-  <button class="back-button" onClick="window.location.href='../index.html'">返回首页</button>
+  <button class="back-button" onClick="window.location.href='../Physics.html'">返回首页</button>
   <div class="container">
     <h1 class="mt-4 mb-4 text-center">气体分子模拟</h1>
     <div class="row">
@@ -227,15 +230,27 @@
       let option = {
         title: {
           text: '粒子速度分布',
-          subtext: `温度: ${temperature} K`
+          subtext: `温度: ${temperature} K`, // 可以尝试将温度值转为字符串并使用模板字符串
+          subtextStyle: {
+            fontSize: '14' // 减小副标题的字体大小
+          },
+          left: 'center' // 将标题居中显示
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross'
+          }
         },
         xAxis: {
           name: '速度 (m/s)',
-          type: 'value'
+          type: 'value',
+          nameGap: 30 // 增加X轴名称与轴线的距离
         },
         yAxis: {
           name: '概率密度',
-          type: 'value'
+          type: 'value',
+          nameGap: 30 // 增加Y轴名称与轴线的距离
         },
         series: [{
           type: 'line',
@@ -293,4 +308,5 @@
     initializeParticles(initialTemperature);
   </script>
 </body>
+
 </html>
