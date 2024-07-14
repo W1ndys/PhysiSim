@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,22 +12,29 @@
       max-width: 1200px;
       margin: 20px auto;
     }
+
     .experiment-info {
       max-height: 600px;
       overflow-y: auto;
     }
+
     .bode-plot {
-      width: 800px; /* 固定波特图宽度 */
-      height: 450px; /* 固定波特图高度 */
+      width: 800px;
+      /* 固定波特图宽度 */
+      height: 450px;
+      /* 固定波特图高度 */
       margin-bottom: 20px;
     }
+
     .circuit-diagram {
       text-align: center;
     }
+
     .circuit-diagram img {
       width: 100%;
       max-width: 400px;
     }
+
     .back-button {
       position: absolute;
       top: 10px;
@@ -40,11 +48,13 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
+
     .back-button:hover {
       background-color: #0277bd;
     }
   </style>
 </head>
+
 <body>
   <button class="back-button" onClick="window.location.href='../Physics.html'">返回首页</button>
   <div class="container">
@@ -111,8 +121,8 @@
     let gainChart;
     let phaseChart;
 
-     // 根据级数更新电路图
-     function updateCircuit() {
+    // 根据级数更新电路图
+    function updateCircuit() {
       const stageCount = parseInt(document.getElementById('stageCount').value, 10);
       renderCircuit(stageCount);
       renderBodePlots(stageCount);
@@ -124,7 +134,7 @@
       circuitDiagram.innerHTML = ''; // 清空之前的电路图
 
       const img = document.createElement('img');
-      img.src = `img/RCimg/stage${stageCount}.png`; // 使用相应的级数图片
+      img.src = `../img/RCimg/stage${stageCount}.png`; // 使用相应的级数图片
       circuitDiagram.appendChild(img);
     }
 
@@ -265,4 +275,5 @@
     updateCircuit();
   </script>
 </body>
+
 </html>
